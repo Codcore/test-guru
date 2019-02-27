@@ -25,14 +25,14 @@ tests = Test.create([
                     ])
 
 questions = Question.create([
-                  { body: 'How to define ruby block?', test: tests[0] },
-                  { body: 'How to define a class?', test: tests[1] },
-                  { body: 'Where is Rails models placed?', test: tests[2] },
-                  { body: 'Where is Rails views placed?', test: tests[3] },
-                  { body: 'Where is Rails controllers places?', test: tests[4] },
-                  { body: 'What is Postgres?', test: tests[5] },
-                  { body: 'How to select all attributes from table?', test: tests[6] }
-                ])
+                              { body: 'How to define ruby block?', test: tests[0] },
+                              { body: 'How to define a class?', test: tests[1] },
+                              { body: 'Where is Rails models placed?', test: tests[2] },
+                              { body: 'Where is Rails views placed?', test: tests[3] },
+                              { body: 'Where is Rails controllers places?', test: tests[4] },
+                              { body: 'What is Postgres?', test: tests[5] },
+                              { body: 'How to select all attributes from table?', test: tests[6] }
+                            ])
 
 Answer.create([
                 { body: 'With a "&" sign.', question: questions[0] },
