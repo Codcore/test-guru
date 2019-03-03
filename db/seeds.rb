@@ -8,6 +8,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create([
+                     { name: 'Andrew', password: '123456', email: 'user@email.ru' },
+                     { name: 'Admin', password: 'admin', email: 'admin@email.ru' }
+                   ])
+
 categories = Category.create([
                                { title: 'Ruby' },
                                { title: 'Rails' },
@@ -15,13 +20,13 @@ categories = Category.create([
                              ])
 
 tests = Test.create([
-                      { title: 'Ruby blocks', level: 3, category: categories[0] },
-                      { title: 'Ruby classes', level: 3, category: categories[0] },
-                      { title: 'Rails Models', level: 5, category: categories[1] },
-                      { title: 'Rails Views', level: 6, category: categories[1] },
-                      { title: 'Rails Controllers', level: 4, category: categories[1] },
-                      { title: 'Postgres essentials', level: 3, category: categories[2] },
-                      { title: 'Postgres SQL essentials', level: 4, category: categories[2] }
+                      { title: 'Ruby blocks', level: 3, category: categories[0], author: user[0] },
+                      { title: 'Ruby classes', level: 3, category: categories[0], author: user[0] },
+                      { title: 'Rails Models', level: 5, category: categories[1], author: user[0] },
+                      { title: 'Rails Views', level: 6, category: categories[1], author: user[0] },
+                      { title: 'Rails Controllers', level: 4, category: categories[1], author: user[0] },
+                      { title: 'Postgres essentials', level: 3, category: categories[2], author: user[0] },
+                      { title: 'Postgres SQL essentials', level: 4, category: categories[2], author: user[0] }
                     ])
 
 questions = Question.create([
@@ -51,7 +56,4 @@ Answer.create([
                 { body: 'SELECT all FROM table_name', question: questions[13] }
               ])
 
-User.create([
-              { name: 'Andrew', password: '123456' },
-              { name: 'Admin', password: 'admin' }
-            ])
+
