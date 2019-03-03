@@ -12,8 +12,8 @@ class Test < ApplicationRecord
   scope :middle,   -> { where(level: 2..4) }
   scope :advanced, -> { where(level: 5..Float::INFINITY) }
   scope :from_category, lambda { |category_title|
-                          Test.joins(:category)
-                              .where(categories: { title: category_title })
+                          joins(:category)
+                            .where(categories: { title: category_title })
                         }
 
   def self.titles_from_category(category_title)
