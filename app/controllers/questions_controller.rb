@@ -1,13 +1,24 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index, show]
-  before_action :find_question, only: %i[show]
+  before_action :find_test
+  before_action :find_question, only: %i[show destroy]
 
-  def index
-    render inline: '<h1><%= @test.title %></h1><ul><% @test.questions.each do |q| %><li><%= q.body %><% end %>'
-  end
+
+  def index; end
 
   def show
     render plain: @question.body
+  end
+
+  def destroy
+    @test.questions.destroy(@question)
+    redirect_to test_questions_path(@test)
+  end
+
+  def new; end
+
+  def create
+    question = @test.questions.create(question_params)
+    redirect_to test_question_path(@test, question)
   end
 
   private
@@ -17,6 +28,10 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.all[params[:id].to_i - 1]
+    @question = @test.questions.find(params[:id])
+  end
+
+  def question_params
+    params.require(:question).permit(:body)
   end
 end

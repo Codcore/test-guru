@@ -1,0 +1,7 @@
+<h1><%= @test.title %></h1>
+<ul>
+  <% @test.questions.each do |q| %>
+    <li><%= q.body %>
+      [<%= link_to "x", test_question_path(@test, q), method: :delete, data: { confirm: "Are you sure?" } %>]
+  <% end %>
+</ul>
