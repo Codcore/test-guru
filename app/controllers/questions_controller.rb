@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
+  before_action :find_test, only: %i[create index new]
   before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -11,8 +11,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @test.questions.destroy(@question)
-    redirect_to test_questions_path(@test)
+    @question.destroy
+    redirect_to test_questions_path(@question.test)
   end
 
   def new; end
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
   def create
     question = @test.questions.new(question_params)
     if question.save
-      redirect_to test_question_path(@test, question)
+      redirect_to question_path(question)
     else
       response.status = 400
       render plain: 'Bad Request'
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def question_params

@@ -2,6 +2,6 @@
 <ul>
   <% @test.questions.each do |q| %>
     <li><%= q.body %>
-      [<%= link_to "x", test_question_path(@test, q), method: :delete, data: { confirm: "Are you sure?" } %>]
+      [<%= link_to "x", question_path(q), method: :delete, data: { confirm: "Are you sure?" } %>]
   <% end %>
 </ul>
