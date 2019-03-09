@@ -13,8 +13,9 @@ body
 
   #footer
     br
-    | Copyright &copy #{Time.current.year}
-    a< href="https://github.com/Codcore/test-guru" Test-Guru
+    | Copyright &copy
+    = year
+    a< href="#{github_url "Codcore", "Test-Guru"}" Test-Guru
     br
     | Developed by Andrew Mark
     br

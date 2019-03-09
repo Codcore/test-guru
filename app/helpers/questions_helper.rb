@@ -5,5 +5,4 @@ module QuestionsHelper
     action = QUESTION_HEADER_ACTIONS[action_name.to_sym]
     "#{action} question for test \"#{question.test.title}\""
   end
-
 end
