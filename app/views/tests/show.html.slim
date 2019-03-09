@@ -1,10 +1,15 @@
 p
   strong Title:
+  |
   = @test.title
 
 p
   strong Level:
   = @test.level
+
+p
+  strong Questions
+= render 'questions/test_questions'
 
 = (link_to 'Edit', edit_test_path(@test)) + " | "
 = link_to 'Back', tests_path
