@@ -1,0 +1,10 @@
+p
+  strong Title:
+  = @test.title
+
+p
+  strong Level:
+  = @test.level
+
+= (link_to 'Edit', edit_test_path(@test)) + " | "
+= link_to 'Back', tests_path
