@@ -1,0 +1,7 @@
+table
+  tr
+    th Question
+    th colspan="3" Actions
+
+    - @test.questions.each do |question|
+      = render question

@@ -1,0 +1,27 @@
+= form_with model: @test, local: true do |form|
+  = render 'shared/errors', resource: @test
+
+  p
+    = form.label :title
+    br
+    = form.text_field :title
+
+  p
+    = form.label :level
+    br
+    = form.number_field :level
+
+  p
+    = form.label :category_id
+    br
+    = form.collection_select :category_id, Category.all, :id, :title, prompt: true
+
+  p
+    = form.label :author
+    br
+    = form.collection_select :author_id, User.all, :id, :name, prompt: true
+
+  = form.submit
+
+br
+= link_to 'Back', test_path(@test)

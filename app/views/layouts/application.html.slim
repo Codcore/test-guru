@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title TestGuru
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+body
+  = yield
+
+  #footer
+    br
+    | Copyright &copy
+    = year
+    a< href="#{github_url "Codcore", "Test-Guru"}" Test-Guru
+    br
+    | Developed by Andrew Mark
+    br
+    | Test-Guru is a service for publishing and surveying online tests.
+    br
+    | Training project at
+    a< href="http://thinknetica.com" Thinknetica online school
