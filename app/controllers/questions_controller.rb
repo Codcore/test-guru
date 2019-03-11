@@ -4,8 +4,6 @@ class QuestionsController < ApplicationController
 
   # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index; end
-
   def show; end
 
   def edit; end
@@ -16,8 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
-    @question.test = @test
+    @question = @test.questions.new
   end
 
   def create
@@ -50,7 +47,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, :id)
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found
