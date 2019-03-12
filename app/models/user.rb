@@ -6,4 +6,8 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   scope :tests_for_level, ->(level) { tests.where(level: level) }
+
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
 end
