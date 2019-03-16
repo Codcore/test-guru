@@ -9,6 +9,12 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
 body
+  - if logged_in?
+    p class="nav user"
+      ' Welcome,
+      b
+        => current_user.name
+        | Guru
   = yield
 
   #footer

@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to tests_path
     else
-      render :new
+      alert = 'Are you a Guru? Verify your email and password please'
+      redirect_to login_path, alert: alert
     end
   end
 end
