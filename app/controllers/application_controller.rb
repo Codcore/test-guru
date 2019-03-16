@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     alert = 'Are you a Guru? Verify your email and password please'
+    session[:redirect_path] = request.env['PATH_INFO']
     redirect_to login_path, alert: alert unless current_user
   end
 
