@@ -14,7 +14,8 @@ body
       ' Welcome,
       b
         => current_user.name
-        | Guru
+        ' Guru
+        | | #{link_to 'Logout', logout_path}
   = yield
 
   #footer
