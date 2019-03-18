@@ -2,6 +2,7 @@ class Admin::TestsController < Admin::BaseController
   before_action :find_test, only: %i[show update edit destroy start]
 
   def index
+    flash[:notice] = "Hello, #{current_user.first_name} #{current_user.last_name} !"
     @tests = Test.all
   end
 
@@ -26,6 +27,7 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
+    @test.author = current_user
     if @test.save
       redirect_to admin_test_path(@test)
     else

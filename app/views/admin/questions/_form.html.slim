@@ -1,4 +1,4 @@
-= form_with model: [@test, @question], local: true do |form|
+= form_with model: [:admin, @test, @question], local: true do |form|
   = render 'shared/errors', resource: @question
 
   p
@@ -9,4 +9,3 @@
   = form.submit
 
 br
-= link_to 'Back', admin_test_path(@question.test)

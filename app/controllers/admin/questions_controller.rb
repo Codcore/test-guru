@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_test, only: %i[create index new]
   before_action :find_question, only: %i[show destroy edit update]
@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test)
+    redirect_to admin_test_path(@question.test)
   end
 
   def new
@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   def create
     question = @test.questions.new(question_params)
     if question.save
-      redirect_to question_path(question)
+      redirect_to admin_question_path(question)
     else
       response.status = 400
       render plain: 'Bad Request'
@@ -30,8 +30,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      puts 'here'
-      redirect_to @question
+      redirect_to admin_question_path(@question)
     else
       render :edit
     end
