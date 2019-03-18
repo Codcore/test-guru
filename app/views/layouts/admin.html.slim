@@ -1,0 +1,39 @@
+html
+  head
+    title Admin Panel | TestGuru
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+body
+  h1 = link_to 'Test-Guru | Admin Panel', root_path
+
+  p class="nav user"
+  - if user_signed_in?
+    ' Welcome,
+    b
+      => current_user.name
+      ' Guru
+      | | #{link_to 'Logout', destroy_user_session_path, method: :delete}
+  - else
+    ' #{link_to 'Register', new_user_registration_path} |
+    ' #{link_to 'Login', user_session_path}
+
+  = render 'shared/flash'
+
+  = yield
+
+  #footer
+    br
+    | Copyright &copy
+    = year
+    =< github_url "Codcore", "Test-Guru"
+    br
+    | Developed by Andrew Mark
+    br
+    | Test-Guru is a service for publishing and surveying online tests.
+    br
+    | Training project at
+    a< href="http://thinknetica.com" Thinknetica online school

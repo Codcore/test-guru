@@ -1,10 +1,13 @@
 h1 Tricky Tests
 
+p
+  = link_to 'New test', new_admin_test_path
+
 table
   tr
     th Title
     th Level
     th Questions
-    th Actions
+    th colspan="4" Actions
 
   = render @tests
