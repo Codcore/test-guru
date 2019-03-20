@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to session[:redirect_path]
+      redirect_to session[:redirect_path] || root_path
     else
       alert = 'Are you a Guru? Verify your email and password please'
       redirect_to login_path, alert: alert

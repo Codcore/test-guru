@@ -14,20 +14,13 @@ class Admin::TestsController < Admin::BaseController
 
   def edit; end
 
-  def start
-    @test = Test.find(params[:id])
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   def destroy
     @test.destroy
     redirect_to admin_tests_path
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.author = current_user
+    current_user.authored_tests.new(test_params)
     if @test.save
       redirect_to admin_test_path(@test)
     else
