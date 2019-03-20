@@ -13,14 +13,14 @@ body
 
   p class="nav user"
   - if user_signed_in?
-    ' Welcome,
+    ' #{t '.welcome'},
     b
       => current_user.name
       ' Guru
-      | | #{link_to 'Logout', destroy_user_session_path, method: :delete}
+      | | #{link_to t('.logout'), destroy_user_session_path, method: :delete}
   - else
-    ' #{link_to 'Register', new_user_registration_path} |
-    ' #{link_to 'Login', user_session_path}
+    ' #{link_to t('.register'), new_user_registration_path} |
+    ' #{link_to t('.login'), user_session_path}
 
   = render 'shared/flash'
 

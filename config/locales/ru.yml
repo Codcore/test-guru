@@ -1,6 +1,110 @@
 ru:
   hello: "Привет, мир!"
 
+  layouts:
+    application:
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
+      register: "Зарегистрироваться"
+      login: "Войти"
+
+    admin:
+      admin_panel: "Административная панель"
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
+      register: "Зарегистрироваться"
+      login: "Войти"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
   tests:
     index:
       header: "Доступные тесты"
+      flash: "Добро пожаловать, %{first_name} %{last_name} !"
+      title: "Название"
+      level: "Уровень"
+      questions: "Вопросы"
+      actions: "Действия"
+
+    test:
+      start: "Старт"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершён!"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+        actions: "Действия"
+        new_test: "Создать тест"
+
+      show:
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+        new_question: "Добавить вопрос"
+        edit: "Редактировать"
+        back: "Назад"
+
+      new:
+        header: "Создать новый тест"
+
+      form:
+        back: "Назад"
+
+    questions:
+      question:
+        sure: "Вы уверены?"
+        show: "Просмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+
+      edit:
+        header: "Редактировать тест '%{test}' "
+
+      test:
+        sure: "Вы уверены?"
+        show: "Просмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+
+      form:
+        back: "Назад"
+
+      create:
+        success: "Тест успешно добавлен"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru"
+
+  devise:
+    sessions:
+      new:
+        log_in: "Войти"
+
+    registrations:
+      new:
+        helpers:

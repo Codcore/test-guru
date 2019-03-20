@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+    unless I18n.locale == params[:lang]
+      I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+    end
   end
 
   def configure_permitted_parameters
