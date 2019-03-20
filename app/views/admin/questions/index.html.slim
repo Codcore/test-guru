@@ -1,0 +1,5 @@
+h1 = @test.title
+ul
+  - @test.questions.each do |q|
+    li = q.body
+    = link_to "x", admin_question_path(q), method: :delete, data: { confirm: "Are you sure?" }
