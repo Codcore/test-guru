@@ -31,3 +31,103 @@
 
 en:
   hello: "Hello world"
+
+  layouts:
+    application:
+      welcome: "Welcome"
+      logout: "Logout"
+      register: "Register"
+      login: "Login"
+
+    admin:
+      welcome: "Welcome"
+      logout: "Logout"
+      register: "Register"
+      login: "Login"
+      admin_panel: "Admin Panel"
+
+      index:
+        new_test: "New test"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+      flash: "Welcome, %{first_name} %{last_name} !"
+      title: "Title"
+      level: "Level"
+      questions: "Questions"
+      actions: "Actions"
+
+    edit:
+      header: "Edit %{test} test"
+
+    test:
+      start: "Start"
+
+    form:
+      back: "Back"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершён!"
+
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  admin:
+    tests:
+      index:
+        header: "Tricky Tests"
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+        new_test: "New test"
+
+      show:
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        new_question: "Add question"
+        edit: "Edit"
+        back: "Back"
+
+      new:
+        header: "Create new test"
+
+      form:
+        back: "Back"
+
+    questions:
+      question:
+        sure: "Are you sure?"
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+
+      test:
+        sure: "Are you sure?"
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+
+      create:
+        success: "Test was successfully created"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
