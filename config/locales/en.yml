@@ -67,6 +67,10 @@ en:
     result:
       header: "Тест %{title} успешно завершён!"
 
+    gist:
+      success: "Gist saved successfully!"
+      failure: "Error while saving"
+
   helpers:
     submit:
       test:

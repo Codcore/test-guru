@@ -11,4 +11,6 @@ b
       = b.label
 
   p
+    = link_to 'Gist this question', gist_test_passage_path(@test_passage), method: :post
+  p
     = form.submit 'Next'
