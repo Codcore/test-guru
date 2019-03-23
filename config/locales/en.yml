@@ -34,10 +34,6 @@ en:
 
   layouts:
     application:
-      welcome: "Welcome"
-      logout: "Logout"
-      register: "Register"
-      login: "Login"
 
     admin:
       welcome: "Welcome"
@@ -87,6 +83,13 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+    nav:
+      welcome: "Welcome"
+      logout: "Logout"
+      register: "Register"
+      login: "Login"
+
 
   admin:
     tests:

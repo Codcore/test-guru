@@ -1,6 +1,9 @@
 doctype html
 html
   head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+
     title TestGuru
     = csrf_meta_tags
     = csp_meta_tag
@@ -9,24 +12,13 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
 body
-  h1 = link_to 'Test-Guru', root_path
+  = render 'shared/nav'
 
-  p class="nav user"
-  - if user_signed_in?
-    ' #{t '.welcome'},
-    b
-      => current_user.name
-      ' Guru
-      | | #{link_to t('.logout'), destroy_user_session_path, method: :delete}
-  - else
-    ' #{link_to t('.register'), new_user_registration_path} |
-    ' #{link_to t('.login'), user_session_path}
+  .container
+    = render 'shared/flash'
+    = yield
 
-  = render 'shared/flash'
-
-  = yield
-
-  #footer
+  .footer
     br
     | Copyright &copy
     = year
