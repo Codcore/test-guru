@@ -76,12 +76,16 @@ ru:
       form:
         back: "Назад"
 
-    questions:
-      question:
+      test:
         sure: "Вы уверены?"
         show: "Просмотреть"
         edit: "Редактировать"
         delete: "Удалить"
+
+
+    questions:
+      question:
+
 
       edit:
         header: "Редактировать тест '%{test}' "

@@ -1,7 +1,7 @@
 tr
-  td = test.title
-  td = test_level(test)
-  td = test.questions.count
-  td = link_to t('.show'), admin_test_path(test)
-  td = link_to t('.edit'), edit_admin_test_path(test)
-  td = link_to t('.delete'), admin_test_path(test), method: :delete, data: { confirm: t('.sure') }
+    th scope="row" = test.title
+    td = test_level(test)
+    td = test.questions.count
+    td = button_to t('.show'), admin_test_path(test), class: "btn btn-primary", method: :get
+    td = button_to t('.edit'), edit_admin_test_path(test), class: "btn btn-warning", method: :get
+    td = button_to t('.delete'), admin_test_path(test), method: :delete, data: {confirm: t('.sure')}, class: "btn btn-danger"
