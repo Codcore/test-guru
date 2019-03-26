@@ -2,7 +2,7 @@ class Admin::TestsController < Admin::BaseController
   before_action :find_test, only: %i[show update edit destroy start]
 
   def index
-    flash[:notice] = "Hello, #{current_user.first_name} #{current_user.last_name} !"
+    flash.now[:notice] = "Hello, #{current_user.first_name} #{current_user.last_name} !"
     @tests = Test.all
   end
 

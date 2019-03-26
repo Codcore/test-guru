@@ -3,7 +3,6 @@ class TestsController < ApplicationController
   before_action :find_test, only: :start
 
   def index
-    return redirect_to admin_tests_path if current_user.admin?
     if current_user && !session[:welcome]
       flash.now[:notice] = t '.flash', first_name: current_user.first_name, last_name: current_user.last_name
       session[:welcome] = true

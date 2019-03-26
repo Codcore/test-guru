@@ -1,10 +1,12 @@
-h1 = t '.header'
+div class="mt-3"
+  h1 = t '.header'
 
-table
-  tr
-    th = t '.title'
-    th = t '.level'
-    th = t '.questions'
-    th = t '.actions'
+table class="table"
+  thead
+    tr
+      th scope="col" = t '.title'
+      th scope="col" = t '.level'
+      th scope="col" = t '.questions'
+      th scope="col" = t '.actions'
 
   = render @tests
