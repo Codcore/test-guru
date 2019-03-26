@@ -21,7 +21,7 @@ class GistQuestionService
 
   def gist_params
     {
-      description: "A question about #{@question} from TestGuru",
+      description: I18n::translate('.gist_question_service.description', question: @question.body.to_s),
       files: {
         'test-guru-question.txt' => {
           'content': gist_content
