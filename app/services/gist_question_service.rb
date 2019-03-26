@@ -3,12 +3,11 @@ require 'octokit'
 class GistQuestionService
 
   END_POINT    = 'https://github.com'
-  ACCESS_TOKEN = '8af03777999788b8dab7fb61ed3bb24f5a1c503b'.freeze
 
   def initialize(question, client: nil)
     @question = question
     @test     = @question.test
-    @client   = client || Octokit::Client.new(access_token: ACCESS_TOKEN, end_point: END_POINT)
+    @client   = client || Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'], end_point: END_POINT)
     @user     = @client.user
     @user.login
   end
