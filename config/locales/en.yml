@@ -68,7 +68,8 @@ en:
       header: "Тест %{title} успешно завершён!"
 
     gist:
-      success: "Gist saved successfully!"
+      success_html: "%{url} save successfully!"
+      gist_href: "Gist"
       failure: "Error while saving"
 
   helpers:

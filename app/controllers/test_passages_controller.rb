@@ -10,11 +10,12 @@ class TestPassagesController < ApplicationController
 
   def gist
     begin
-      GistQuestionService.new(@test_passage.current_question).call
+      @result   = GistQuestionService.new(@test_passage.current_question).call
+      @gist_url = @result[:html_url]
     rescue Exception
       flash_options = { alert: t('.failure') }
     else
-      flash_options = { notice: t('.success') }
+      flash_options = { notice: t('.success_html', url: view_context.link_to(t('.gist_href'), @gist_url, class: "alert-link")) }
     end
     redirect_to @test_passage, flash_options
   end
