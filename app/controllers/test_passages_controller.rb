@@ -9,17 +9,15 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    begin
-      @result   = GistQuestionService.new(@test_passage.current_question).call
-      @gist_url = @result[:html_url]
-    rescue Exception
+    @result   = GistQuestionService.new(@test_passage.current_question).call
+    @gist_url = @result[:html_url]
+    if Octokit.last_response
       flash_options = { alert: t('.failure') }
     else
-      current_user.gists.new(url: @result[:id], question: @test_passage.current_question).save!
-      p "---------------------------------------------------------------------------"
-      p @result[:id]
+      current_user.gists.create(url: @result[:id], question: @test_passage.current_question)
       flash_options = { notice: t('.success_html', url: view_context.link_to(t('.gist_href'), @gist_url, class: "alert-link")) }
     end
+
     redirect_to @test_passage, flash_options
   end
 
