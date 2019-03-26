@@ -15,6 +15,9 @@ class TestPassagesController < ApplicationController
     rescue Exception
       flash_options = { alert: t('.failure') }
     else
+      current_user.gists.new(url: @result[:id], question: @test_passage.current_question).save!
+      p "---------------------------------------------------------------------------"
+      p @result[:id]
       flash_options = { notice: t('.success_html', url: view_context.link_to(t('.gist_href'), @gist_url, class: "alert-link")) }
     end
     redirect_to @test_passage, flash_options
