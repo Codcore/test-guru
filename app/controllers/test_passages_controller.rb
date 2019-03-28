@@ -1,10 +1,25 @@
+require_relative '../services/gist_question_service'
+
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_test_passage, only: %i[show update result]
+  before_action :find_test_passage, only: %i[show update result gist]
 
   def show; end
 
   def result; end
+
+  def gist
+    @result   = GistQuestionService.new(@test_passage.current_question).call
+    @gist_url = @result[:html_url]
+    if Octokit.last_response
+      flash_options = { alert: t('.failure') }
+    else
+      current_user.gists.create(url: @result[:id], question: @test_passage.current_question)
+      flash_options = { notice: t('.success_html', url: view_context.link_to(t('.gist_href'), @gist_url, class: "alert-link")) }
+    end
+
+    redirect_to @test_passage, flash_options
+  end
 
   def update
     @test_passage.accept!(params[:answer_ids])

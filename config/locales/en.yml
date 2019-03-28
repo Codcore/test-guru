@@ -67,6 +67,11 @@ en:
     result:
       header: "Тест %{title} успешно завершён!"
 
+    gist:
+      success_html: "%{url} save successfully!"
+      gist_href: "Gist"
+      failure: "Error while saving"
+
   helpers:
     submit:
       test:
@@ -134,3 +139,6 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  gist_question_service:
+    description: "A question about %{question} from Test-Guru"

@@ -33,6 +33,7 @@ gem 'devise', '~> 4.0'
 gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
+gem 'faraday'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -67,6 +68,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'octokit', '~> 4.13'
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

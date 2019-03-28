@@ -7,8 +7,6 @@ class TestsController < ApplicationController
       flash.now[:notice] = t '.flash', first_name: current_user.first_name, last_name: current_user.last_name
       session[:welcome] = true
     end
-    puts current_user.first_name
-    puts current_user.last_name
     @tests = Test.all
   end
 

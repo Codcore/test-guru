@@ -52,6 +52,11 @@ ru:
     result:
       header: "Тест %{title} успешно завершён!"
 
+    gist:
+      success_html: "%{url} успешно сохранён!"
+      gist_href: "Gist"
+      failure: "Во время сохранения gist произошла ошибка"
+
   admin:
     tests:
       index:
@@ -114,3 +119,6 @@ ru:
     registrations:
       new:
         helpers:
+
+  gist_question_service:
+    description: "Вопрос о %{question} из TestGuru"
