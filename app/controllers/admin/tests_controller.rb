@@ -3,7 +3,10 @@ class Admin::TestsController < Admin::BaseController
   before_action :find_test, only: %i[show update edit destroy start update_inline]
 
   def index
-    flash.now[:notice] = "Hello, #{current_user.first_name} #{current_user.last_name} !"
+    if current_user && !session[:welcome]
+      flash.now[:notice] = t '.flash', first_name: current_user.first_name, last_name: current_user.last_name
+      session[:welcome] = true
+    end
     @tests = Test.all
   end
 
