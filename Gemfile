@@ -35,6 +35,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'faraday'
 gem 'octicons'
 gem 'octicons_helper'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -70,7 +71,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'octokit', '~> 4.13'
-  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
