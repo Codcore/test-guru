@@ -117,6 +117,9 @@ en:
       new:
         header: "Create new test"
 
+      update_inline:
+        submit: "Ok"
+
       form:
         back: "Back"
 

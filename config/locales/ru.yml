@@ -78,6 +78,9 @@ ru:
       new:
         header: "Создать новый тест"
 
+      form_inline:
+        submit: "Ок"
+
       form:
         back: "Назад"
 

@@ -1,7 +1,7 @@
 tr
-    th scope="row" = test.title
-    td = test_level(test)
-    td = test.questions.count
-    td = button_to t('.show'), admin_test_path(test), class: "btn btn-primary", method: :get
-    td = button_to t('.edit'), edit_admin_test_path(test), class: "btn btn-warning", method: :get
-    td = button_to t('.delete'), admin_test_path(test), method: :delete, data: {confirm: t('.sure')}, class: "btn btn-danger"
+    th scope="row" class="align-middle" #{content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }} #{render 'form_inline', test: test == @test ? @test : test}
+    td class="align-middle" = test_level(test)
+    td class="align-middle" = test.questions.count
+    td class="align-middle" = button_to t('.show'), admin_test_path(test), class: "btn btn-primary", method: :get
+    td class="align-middle" = button_to t('.edit'), edit_admin_test_path(test), class: "btn btn-warning form-inline-link", data: { test_id: test.id }, method: :get
+    td class="align-middle" = button_to t('.delete'), admin_test_path(test), method: :delete, data: {confirm: t('.sure')}, class: "btn btn-danger"
