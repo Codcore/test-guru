@@ -270,7 +270,6 @@ DEPENDENCIES
   devise (~> 4.0)
   devise-i18n
   dotenv-rails
-  faraday
   i18n
   jbuilder (~> 2.5)
   jquery-rails
