@@ -32,7 +32,7 @@ gem 'devise', '~> 4.0'
 gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
-gem 'faraday'
+gem 'octokit', '~> 4.13'
 gem 'octicons'
 gem 'octicons_helper'
 gem 'dotenv-rails', groups: [:development, :test]
