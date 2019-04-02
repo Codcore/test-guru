@@ -10,6 +10,6 @@ class Answer < ApplicationRecord
 
   def max_answers_number
     message = 'reached max number of answers'
-    # errors.add(:question, message) unless (1..4).cover?(question.answers.size)
+    errors.add(:question, message) unless (1..4).cover?(question.answers.size)
   end
 end
