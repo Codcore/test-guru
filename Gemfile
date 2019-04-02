@@ -36,7 +36,7 @@ gem 'octokit', '~> 4.13'
 gem 'octicons'
 gem 'octicons_helper'
 gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'letter_opener'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -61,7 +61,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener'
 end
 
 group :test do
