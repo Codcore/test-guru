@@ -72,11 +72,19 @@ en:
       gist_href: "Gist"
       failure: "Error while saving"
 
+  feedbacks:
+    new:
+      header: "Feedback form"
+
+
   helpers:
     submit:
       test:
         create: "Create test"
         update: "Update test"
+      feedback:
+        create: "Send feedback to the administrator"
+
     label:
       test:
         title: "Title"
@@ -88,6 +96,9 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+    footer:
+      feedback: "Feedback"
 
     nav:
       welcome: "Welcome"

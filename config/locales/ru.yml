@@ -16,11 +16,17 @@ ru:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+      feedback:
+        create: "Отправить сообщение администратору"
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+      feedback:
+        title: "Тема собщения"
+        email: "Ваш email"
+        text: "Текст сообщения"
 
   shared:
     errors:
@@ -35,6 +41,9 @@ ru:
       logout: "Выйти"
       register: "Зарегистрироваться"
       login: "Войти"
+
+    footer:
+      feedback: "Обратная связь"
 
   tests:
     index:
@@ -56,6 +65,10 @@ ru:
       success_html: "%{url} успешно сохранён!"
       gist_href: "Gist"
       failure: "Во время сохранения gist произошла ошибка"
+
+  feedbacks:
+    new:
+      header: "Обратная связь"
 
   admin:
     tests:
@@ -124,4 +137,12 @@ ru:
         helpers:
 
   gist_question_service:
-    description: "Вопрос о %{question} из TestGuru"
+#    description: "Вопрос о %{question} из TestGuru"
+#
+  activemodel:
+#    models:
+    attributes:
+      feedback:
+        title: "Название"
+        email: "Email"
+        text: "Сообщение"
