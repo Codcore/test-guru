@@ -59,7 +59,8 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      succeed: "Тест %{title} успешно завершён!"
+      failed: "Вы не прошли тест %{title}."
 
     gist:
       success_html: "%{url} успешно сохранён!"

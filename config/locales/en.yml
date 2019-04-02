@@ -65,7 +65,8 @@ en:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      succeed: "Test %{title} completed succesfully!"
+      failed: "You failed the %{title} test."
 
     gist:
       success_html: "%{url} save successfully!"
