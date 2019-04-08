@@ -20,8 +20,19 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def edit; end
-  def update; end
-  def destroy; end
+
+  def update
+    if @badge.update(badge_params)
+      redirect_to admin_badges_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @badge.destroy
+    redirect_to admin_badges_path
+  end
 
   private
 
