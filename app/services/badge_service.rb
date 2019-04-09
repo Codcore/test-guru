@@ -6,8 +6,13 @@ class BadgeService
   end
 
   def call
+    new_badges = []
     @badges.each do |badge|
-      @test_passage.user.badges.push(badge) if badge.give_away?(@test_passage)
+      if badge.give_away?(@test_passage)
+        @test_passage.user.badges << badge
+        new_badges << badge
+      end
     end
+    new_badges
   end
 end
