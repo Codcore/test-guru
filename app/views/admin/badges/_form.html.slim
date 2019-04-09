@@ -1,4 +1,4 @@
-= bootstrap_form_with model: [:admin, @badge], local: true do |form|
+= bootstrap_form_with model: [:admin, @badge.becomes(Badge)], local: true do |form|
   = render 'shared/errors', resource: @badge
 
   p
@@ -7,7 +7,11 @@
   p
     = form.text_field :file_name
 
+  p
+    = form.select :type, options_for_select(badges_types_array_for_select)
+
   = form.submit
+
 
 br
 = link_to "Назад", admin_badges_path

@@ -11,4 +11,9 @@ class Badge < ApplicationRecord
   def give_away?(test_passage)
     return NotImplementedError
   end
+
+  def self.badges_types
+    Dir["#{File.dirname(__FILE__)}/badges/*.rb"].each { |file| load file }
+    Badges.constants.select { |c| Badges.const_get(c).is_a? Class }.sort!
+  end
 end

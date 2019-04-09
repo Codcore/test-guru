@@ -11,6 +11,7 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def create
+    # badge_params[:type] = 'Badges::' + badge_params[:type].to_s
     @badge = Badge.new(badge_params)
     if @badge.save
       redirect_to admin_badges_path
@@ -22,6 +23,7 @@ class Admin::BadgesController < Admin::BaseController
   def edit; end
 
   def update
+    # badge_params[:type] = 'Badges::' + badge_params[:type].to_s
     if @badge.update(badge_params)
       redirect_to admin_badges_path
     else
@@ -41,6 +43,6 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def badge_params
-    params.require(:badge).permit(:name, :file_name)
+    params.require(:badge).permit(:name, :file_name, :type)
   end
 end
