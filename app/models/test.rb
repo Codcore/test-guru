@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
-  has_many :test_passages
-  has_many :tests, through: :test_passages
+  has_many :test_passages, dependent: :destroy
+  has_many :tests, through: :test_passages, dependent: :destroy
 
   has_many :questions, dependent: :destroy
   belongs_to :category
