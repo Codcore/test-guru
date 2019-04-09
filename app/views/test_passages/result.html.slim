@@ -1,7 +1,5 @@
-h1 = t '.header', title: @test_passage.test.title
-
-h3 id="#{@test_passage.succeed_or_failed}_message"
-  | Test passing is #{@test_passage.succeed_or_failed}!
+h3 id="#{@test_passage.succeed_or_failed}_message" class="#{@test_passage.succeed? ? 'text-success' : 'text-danger'}"
+  = t(".#{@test_passage.succeed_or_failed}", title: @test_passage.test.title)
 
 br
 a = link_to 'More tests', tests_path

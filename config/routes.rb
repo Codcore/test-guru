@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
   root 'tests#index'
 
+  resources :feedbacks, shallow: true, only: %i[new create]
   resources :tests, shallow: true, only: :index do
     member do
       post :start

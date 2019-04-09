@@ -37,6 +37,10 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
+  def succeed?
+    success_percent >= COMPLETION_THRESHOLD && completed?
+  end
+
   private
 
   def before_validation_set_first_question
@@ -44,6 +48,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
+    answer_ids.reject!(&:empty?)
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
