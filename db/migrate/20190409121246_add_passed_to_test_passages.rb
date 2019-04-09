@@ -1,5 +1,5 @@
 class AddPassedToTestPassages < ActiveRecord::Migration[5.2]
   def change
-    add_column :test_passages, :passed, :string
+    add_column :test_passages, :passed, :boolean
   end
 end
