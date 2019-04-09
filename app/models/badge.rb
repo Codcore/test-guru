@@ -7,4 +7,8 @@ class Badge < ApplicationRecord
   def file_url
     File.join('badges_images', file_name)
   end
+
+  def give_away?(test_passage)
+    return NotImplementedError
+  end
 end
