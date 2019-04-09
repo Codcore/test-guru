@@ -4,12 +4,11 @@ nav class="navbar navbar-light bg-light"
   span class="navbar-text"
     - if user_signed_in?
       | #{t '.welcome'},
-      b #{link_to current_user.first_name, badges_path} | #{link_to 'Log out', destroy_user_session_path, method: :delete}
+      b #{current_user.name} Guru | #{link_to 'Log out', destroy_user_session_path, method: :delete}
       br
       - if current_user.admin?
         = link_to "[ Admin panel ]", admin_tests_path
         = link_to "[ Gists ]", admin_gists_path
-        = link_to "[ Badges ]",  admin_badges_path
 
     - else
       ' #{link_to t('.register'), new_user_registration_path} |
