@@ -1,0 +1,17 @@
+div class="mt-3"
+  h1 = "Доступные Бейджи"
+
+p
+  = button_to 'Создать Бейдж', new_admin_badge_path, class: "btn btn-success", method: :get
+
+p
+  = render 'shared/errors', resource: @badge
+
+table class="table"
+  thead
+    tr
+      th scope="col" Название
+      th scope="col" Значок
+      th scope="col" colspan="2" Действия
+
+  = render partial: 'badge', collection: @badges

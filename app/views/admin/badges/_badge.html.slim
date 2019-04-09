@@ -1,0 +1,5 @@
+tr
+  th scope="row" class="align-middle" = badge.name
+  td class="align-middle" = image_tag badge.file_url, size: "32"
+  td class="align-middle" = button_to 'Edit', edit_admin_badge_path(badge), class: "btn btn-warning", method: :get
+  td class="align-middle" = button_to 'Delete', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
