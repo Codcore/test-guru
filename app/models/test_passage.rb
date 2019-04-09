@@ -14,6 +14,12 @@ class TestPassage < ApplicationRecord
       self.correct_questions += 1
     end
 
+    validate!
+
+    if completed?
+      self.passed = succeed?
+    end
+
     save!
   end
 
@@ -57,6 +63,6 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_set_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first if current_question
   end
 end

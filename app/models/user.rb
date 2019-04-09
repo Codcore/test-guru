@@ -29,4 +29,8 @@ class User < ApplicationRecord
   def admin?
     type == 'Admin'
   end
+
+  def completed_tests
+    tests.where('test_passages.passed = ?', true)
+  end
 end

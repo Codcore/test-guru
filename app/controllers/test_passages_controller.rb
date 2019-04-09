@@ -9,8 +9,7 @@ class TestPassagesController < ApplicationController
 
   def result
     new_badges = BadgeService.new(@test_passage).call
-    new_badges_msg = new_badges.map { |b| "Вы получили медаль '#{b.name}' " }.join("\n")
-    flash.now[:notice] = new_badges_msg
+    helpers.show_new_badges_msg(new_badges)
   end
 
   def gist
