@@ -1,4 +1,5 @@
 require_relative '../services/gist_question_service'
+require_relative '../services/badge_service'
 
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
@@ -6,7 +7,10 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result; end
+  def result
+    new_badges = BadgeService.new(@test_passage).call
+    helpers.show_new_badges_msg(new_badges)
+  end
 
   def gist
     @result   = GistQuestionService.new(@test_passage.current_question).call

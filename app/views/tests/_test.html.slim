@@ -3,4 +3,7 @@ tbody
     th scope="row" = test.title
     td = test_level(test)
     td = test.questions.count
-    td = button_to t('.start'), start_test_path(test), class: 'btn btn-success'
+    - if test.questions.any?
+      td = button_to t('.start'), start_test_path(test), class: 'btn btn-success'
+    - else
+      td = button_to t('.start'), '#', class: 'btn btn-success', disabled: true

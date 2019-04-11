@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
   has_many :gists
+  has_and_belongs_to_many :badges
 
   scope :tests_for_level, ->(level) { tests.where(level: level) }
 
@@ -27,5 +28,9 @@ class User < ApplicationRecord
 
   def admin?
     type == 'Admin'
+  end
+
+  def completed_tests
+    tests.where('test_passages.passed = ?', true)
   end
 end
