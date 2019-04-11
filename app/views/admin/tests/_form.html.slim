@@ -16,6 +16,11 @@
     br
     = form.collection_select :category_id, Category.all, :id, :title, prompt: true
 
+  p
+    = form.label :passage_time
+    br
+    = form.number_field :passage_time
+
   = form.submit
 
 br

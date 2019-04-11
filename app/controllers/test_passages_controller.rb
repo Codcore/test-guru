@@ -5,7 +5,11 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_test_passage, only: %i[show update result gist]
 
-  def show; end
+  def show
+    if @test_passage.expire_time
+      redirect_to result_test_passage_path(@test_passage) if @test_passage.expire_time < Time.now
+    end
+  end
 
   def result
     new_badges = BadgeService.new(@test_passage).call
@@ -26,6 +30,7 @@ class TestPassagesController < ApplicationController
   end
 
   def update
+    return redirect_to result_test_passage_path(@test_passage) if @test_passage.expire_time < Time.now
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
