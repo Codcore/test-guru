@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
-  # before_create :after_create_set_expire_time
+  before_create :after_create_set_expire_time
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
