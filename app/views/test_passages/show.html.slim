@@ -21,3 +21,7 @@ b
   = content_tag :div, class: "progress" do
     = content_tag :div, class: "progress-bar bg-success",
       data: { question_number: @test_passage.current_question_number, questions_count: @test_passage.test.questions.count } do
+
+  - if @test_passage.expire_time
+    = content_tag :span, class: "badge badge-warning" do
+      | Time left: #{seconds_to_time(@test_passage.time_left_to_pass)}

@@ -8,6 +8,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
+  # before_create :after_create_set_expire_time
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -37,11 +38,11 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
-  private
-
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
+  def time_left_to_pass
+    self.expire_time - Time.now
   end
+
+  private
 
   def correct_answer?(answer_ids)
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
@@ -49,6 +50,19 @@ class TestPassage < ApplicationRecord
 
   def correct_answers
     current_question.answers.correct
+  end
+
+  def after_create_set_expire_time
+    if test.passage_time > 0
+      self.expire_time = test.passage_time.minutes.from_now
+      puts expire_time
+    else
+      self.expire_time = nil
+    end
+  end
+
+  def before_validation_set_first_question
+    self.current_question = test.questions.first if test.present?
   end
 
   def before_validation_set_next_question
